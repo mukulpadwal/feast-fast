@@ -1,20 +1,36 @@
+// Importing important modules
 import express from 'express';
+import bodyParser from 'body-parser';
 import mongoDB from './db.js';
-import router from './Routes/CreateUser.js';
+import cors from "cors";
+import router from './Routes/UserValidation.js';
 
+// Initializing the app
 const app = express();
-const port = 5000;
+const PORT = 5000;
 
+app.use(cors());
+app.use(bodyParser.json());
+
+// Alloeing the cors
+app.use((req,res,next)=>{
+  res.setHeader('Access-Control-Allow-Origin', "*");
+  res.header('Access-Control-Allow-Headers','Origin, X-Requested-With, Content-Type, Accept');
+  next(); 
+});
+
+// Connecting to mongodb databse
 mongoDB();
 
-app.use(express.json());
+// EndPoints
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+app.get("/", (req, res) => {
+  res.json({reply : "Hello There!!!"});
 })
 
 app.use("/api", router);
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`);
+});
