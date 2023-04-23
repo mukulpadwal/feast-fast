@@ -1,14 +1,14 @@
-import express, { response } from "express";
+import express from "express";
 import User from "../models/User.js";
 import { body, validationResult } from "express-validator";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-const router = express.Router();
+const userRouter = express.Router();
 
 
 // Endpoint to create a new user
-router.post("/createuser",
+userRouter.post("/createuser",
     [
         body("email").isEmail(),
         body("password").isLength({ min: 5 })
@@ -42,7 +42,7 @@ router.post("/createuser",
 
 
 // Endpoint to check an existing user and log in into account
-router.post("/loginuser", [
+userRouter.post("/loginuser", [
     body("email").isEmail()
 ], async (req, res) => {
 
@@ -57,7 +57,7 @@ router.post("/loginuser", [
     try {
         const userData = await User.findOne({ email });
 
-        console.log(userData);
+        // console.log(userData);
 
         // Checking if the user exists
         if (userData.email === email) {
@@ -87,4 +87,4 @@ router.post("/loginuser", [
     }
 })
 
-export default router;
+export default userRouter;
