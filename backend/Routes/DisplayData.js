@@ -7,20 +7,18 @@ const dataRouter = express.Router();
 dataRouter.post("/getdata", async (req, res) => {
     try {
         let data = await FoodItems.find({});
-        console.log(data);
-        res.status(200).json({success: true});
+        res.send(data);
     } catch (error){
-
+        res.status(404).json({success: false});
     }
 })
 
 dataRouter.post("/getcategories", async (req, res) => {
     try {
         let data = await FoodCategories.find({});
-        console.log(data);
-        res.status(200).json({success: true});
+        res.send(data);
     } catch (error){
-
+        res.status(404).json({success: false});
     }
 })
 

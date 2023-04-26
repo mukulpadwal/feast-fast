@@ -9,9 +9,7 @@ const mongoDB = async () => {
     try {
         await mongoose.connect(mongoURI)
             .then((response) => {
-                let data = mongoose.connection.db.collection("users");
-                data.find({});
-                return console.log("Connected succesfully", data);
+                return console.log("Connected succesfully");
             })
             .catch(error => console.log(error));
     } catch (error) {
