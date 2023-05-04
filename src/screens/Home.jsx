@@ -100,7 +100,8 @@ const Home = () => {
             foodCategories.map((category) => {
               return (
                 <div className='row mb-3' key={category._id}>
-                  <div key={category._id} className='fs-3'>
+                  <hr />
+                  <div key={category._id} className='fs-2 fw-bolder text-center mb-3'>
                     {category.CategoryName}
                   </div>
                   <hr />
