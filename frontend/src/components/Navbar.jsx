@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { Badge } from 'react-bootstrap';
 
 const Navbar = () => {
 
@@ -27,7 +28,10 @@ const Navbar = () => {
                             {
                                 (localStorage.getItem("authToken"))
                                     ? <li className="nav-item">
-                                        <Link className="nav-link active fs-5" aria-current="page" to='/'>My Cart</Link>
+                                        <Link className="nav-link active fs-5" aria-current="page" to='/'>
+                                            My Cart
+                                            <Badge pill bg='danger' className='m-1 '> 2 </Badge>
+                                        </Link>
                                     </li>
                                     : ""
                             }

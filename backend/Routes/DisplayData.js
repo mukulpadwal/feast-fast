@@ -6,8 +6,8 @@ const dataRouter = express.Router();
 
 dataRouter.post("/getdata", async (req, res) => {
     try {
-        let data = await FoodItems.find({});
-        res.send(data);
+        let itemData = await FoodItems.find({});
+        res.status(201).send(itemData);
     } catch (error){
         res.status(404).json({success: false});
     }
@@ -15,8 +15,8 @@ dataRouter.post("/getdata", async (req, res) => {
 
 dataRouter.post("/getcategories", async (req, res) => {
     try {
-        let data = await FoodCategories.find({});
-        res.send(data);
+        let catergoryData = await FoodCategories.find({});
+        res.status(201).send(catergoryData);
     } catch (error){
         res.status(404).json({success: false});
     }

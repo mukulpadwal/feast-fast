@@ -23,7 +23,6 @@ export const Card = ({ data }) => {
         setSize(priceRef.current.value);
     }, []);
 
-
     let finalPrice = qty * parseInt(options[size]);
 
     return (

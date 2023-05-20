@@ -11,7 +11,7 @@ const Home = () => {
 
   const loadItemData = async () => {
     try {
-      const URL = "http://localhost:5000/api/getdata";
+      const URL = `${process.env.REACT_APP_BACKEND_BASE_URL}/api/getdata`;
       const response = await fetch(URL, {
         method: "POST",
         mode: "cors",
@@ -34,7 +34,7 @@ const Home = () => {
 
   const loadCategoryData = async () => {
     try {
-      const URL = "http://localhost:5000/api/getcategories";
+      const URL = `${process.env.REACT_APP_BACKEND_BASE_URL}/api/getcategories`;
       const response = await fetch(URL, {
         method: "POST",
         mode: "cors",

@@ -6,7 +6,6 @@ import jwt from "jsonwebtoken";
 
 const userRouter = express.Router();
 
-
 // Endpoint to create a new user
 userRouter.post("/createuser",
     [

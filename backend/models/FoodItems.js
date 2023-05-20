@@ -40,4 +40,4 @@ const foodItemsSchema = Schema({
     ]
 });
 
-export default model('foodItems', foodItemsSchema);
+export default model('foodItem', foodItemsSchema);

@@ -10,10 +10,11 @@ import dataRouter from './Routes/DisplayData.js';
 const app = express();
 const PORT = 5000;
 
+// Middlewares
 app.use(cors());
 app.use(bodyParser.json());
 
-// Alloeing the cors
+// Allowing the cors (cross origin resource sharing)
 app.use((req,res,next)=>{
   res.setHeader('Access-Control-Allow-Origin', "*");
   res.header('Access-Control-Allow-Headers','Origin, X-Requested-With, Content-Type, Accept');
@@ -23,8 +24,8 @@ app.use((req,res,next)=>{
 // Connecting to mongodb databse
 mongoDB();
 
-// EndPoints
 
+// EndPoints
 app.get("/", (req, res) => {
   res.json({reply : "Hello There!!!"});
 })
@@ -34,5 +35,5 @@ app.use("/api", dataRouter);
 
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`FeastFast Backend Up and Running on port ${PORT}`);
 });

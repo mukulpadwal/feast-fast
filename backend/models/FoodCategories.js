@@ -8,4 +8,4 @@ const foodCategorySchema = Schema({
     }
 });
 
-export default model('foodCategories', foodCategorySchema);
+export default model('foodCategory', foodCategorySchema);
